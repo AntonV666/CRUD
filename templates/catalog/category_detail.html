@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Описание категории{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <!-- Заголовок страницы -->
+        <h2 class="mb-4">Описание категории</h2>
+
+        <!-- Информация о категории -->
+        <div class="mb-3">
+            <p><strong>Название:</strong> {{ category.name }}</p>
+            <!-- Закомментированное поле цены -->
+            {#<p><strong>Цена:</strong> {{ category.price }}</p>#}
+            <p><strong>Описание:</strong> {{ category.description }}</p>
+            <!-- Закомментированная категория продукта -->
+            {#<p><strong>Категория:</strong> {{ product.category.name }}</p>#}
+        </div>
+
+        <!-- Ссылка назад -->
+        <div class="mt-3">
+            <a href="{% url 'category_list' %}" class="btn btn-secondary">Назад к списку категорий</a>
+        </div>
+    </div>
+{% endblock %}

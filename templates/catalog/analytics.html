@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Аналитика каталога{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Аналитика каталога</h1>
+
+    <!-- Общая статистика -->
+    <h2 class="mb-3">Общая статистика по каталогу</h2>
+    <ul class="list-group mb-4">
+        <li class="list-group-item">Средняя цена: {{ shop_stats.avg_price }}</li>
+        <li class="list-group-item">Общая цена всех товаров: {{ shop_stats.total_price }}</li>
+        <li class="list-group-item">Общее количество товаров: {{ shop_stats.total_items }}</li>
+        <li class="list-group-item">Самая высокая цена: {{ shop_stats.max_price }}</li>
+        <li class="list-group-item">Самая низкая цена: {{ shop_stats.min_price }}</li>
+    </ul>
+
+    <!-- Статистика по категориям -->
+    <h2 class="mb-3">Статистика по категориям</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+            <tr>
+                <th>Категория</th>
+                <th>Общая стоимость</th>
+                <th>Средняя цена</th>
+                <th>Количество продуктов</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for category in category_stats %}
+                <tr>
+                    <td>{{ category.category }}</td>
+                    <td>{{ category.total_price }}</td>
+                    <td>{{ category.avg_price }}</td>
+                    <td>{{ category.count }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+{% endblock %}
